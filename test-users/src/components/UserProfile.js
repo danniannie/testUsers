@@ -40,9 +40,9 @@ state = {
   handleSubmit = async event => {
     event.preventDefault();
     const userObj = this.state;
-    // const addedStudent = await api.postStudent(studentObj);
+    // const amendedUser = await api.patchUser(userObj);
     console.log(userObj)
-    // this.setState({ addedStudent });
+   
   };
 }
 
