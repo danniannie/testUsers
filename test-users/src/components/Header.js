@@ -1,10 +1,9 @@
 import React from 'react';
-
+import '../App.css';
 const Header = () => {
   return (
     <div>
-      Header
-      
+     <header>Admin page</header>
     </div>
   );
 };
