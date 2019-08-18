@@ -4,18 +4,22 @@ import * as api from '../utils/api'
 
 class UserProfile extends Component {
 state = {
-  name: '',
-  email: ''
+  originalName: '',
+  originalEmail: '',
+  name: "",
+  email: ""
+  
 }
 
   render() {
-    // const { name, email } = this.props.location.state.user.data
+    
+  
     return (
       <div>
       <h2>Edit User Details</h2>
       <form onSubmit={this.handleSubmit}>
        <div className='label'>
-        Current Name: {"name"}{' '}
+            Current Name: {this.state.originalName}{' '}
        <label htmlFor="name"></label>
         <input
           type="text"
@@ -25,7 +29,7 @@ state = {
         />
         </div> 
         <div className='label'>
-        Current Email: {"email"}{' '}
+            Current Email: {this.state.originalEmail}{' '}
  <label htmlFor="email"></label>
         <input
           type="text"
@@ -45,7 +49,7 @@ state = {
 componentDidMount  = async () => {
   const {id} = this.props.location.state
   const user = await api.fetchUserbyID(id)
-  this.setState({ name: user.data.name, email: user.data.email })
+  this.setState({ originalName: user.data.name, originalEmail: user.data.email })
 }
   handleChange = event => {
     const { value, id } = event.target;
@@ -55,7 +59,14 @@ componentDidMount  = async () => {
   handleSubmit = async event => {
     event.preventDefault();
     const {id} = this.props.location.state
-    const userObj = this.state;
+    const {name, email} = this.state
+    const userObj = {}
+    if(name.length > 0){
+      userObj.name = name
+    }
+    if (email.length > 0) {
+      userObj.email = email
+    }
     const amendedUser = await api.patchUser(id, userObj);
     
    
