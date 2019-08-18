@@ -3,7 +3,7 @@ import '../App.css';
 const Header = () => {
   return (
     <div>
-     <header>Admin page</header>
+     <header><h1>USER ADMINISTRATION</h1></header>
     </div>
   );
 };

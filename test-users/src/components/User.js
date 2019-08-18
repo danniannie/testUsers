@@ -14,7 +14,7 @@ class User extends Component {
       <div className='user'>
       <p>  Name: {name}</p>
        <p> Email Address: {email} </p>
-      <Link to={`/123`} className='delete'>Edit</Link>
+      <Link to={`/${email}`} state={{id: email}}className='delete'>Edit</Link>
         <p><span className='delete'onClick={this.handleClick}>Delete</span></p>
       </div>
     );

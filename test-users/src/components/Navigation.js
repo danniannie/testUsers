@@ -5,8 +5,8 @@ import '../App.css';
 const Navigation = () => {
   return (
     <nav>
-      <Link to="/">All users</Link>
-      <Link to="/addUser">Add User</Link>
+      <Link id="links" to="/">All Users</Link>
+      <Link id="links" to="/addUser">Add New User</Link>
       
     </nav>
   );

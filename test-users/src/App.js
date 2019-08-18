@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <Header/>
       <Navigation/>
-      <Router>
+      <Router className="router">
 <UserList path='/'/>
 <AddUser path='/addUser'/>
 <UserProfile path='/:userID'/>
