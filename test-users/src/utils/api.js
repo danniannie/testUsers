@@ -20,3 +20,8 @@ export const fetchUserbyID = async (id) => {
   const { data } = await axios.get(`${baseUrl}/${id}`);
   return data;
 };
+
+export const patchUser = async (userId, body) => {
+  const { data } = await axios.patch(`${baseUrl}/${userId}`, body);
+  return data;
+}

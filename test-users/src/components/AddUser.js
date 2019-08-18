@@ -5,10 +5,9 @@ import * as api from '../utils/api'
 class AddUser extends Component {
   state = {
     name: '',
-    email: '', addedUser: {}
+    email: '', addedUser: false
   }
   render() {
-    console.log(this.state)
     return (
       <div>
       <form onSubmit={this.handleSubmit}>
@@ -28,7 +27,7 @@ class AddUser extends Component {
         />
         <button type='submit'>Add User</button>
       </form>
-      {this.state.addedUser.length > 1 ? <p>{this.state.addedUser.name} added</p>: ""}
+      {this.state.addedUser === true ? <p>New user added</p>: ""}
       </div>
     );
   }
@@ -42,8 +41,8 @@ class AddUser extends Component {
     const name = this.state.name
     const email = this.state.email
     const userObj = {name, email}
+    this.setState({addedUser:true, name: "", email:""})
     const addedUser = await api.postUser(userObj);
-    this.setState({addedUser})
   };
 
 }

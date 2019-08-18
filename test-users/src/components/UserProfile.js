@@ -9,12 +9,13 @@ state = {
 }
 
   render() {
+    // const { name, email } = this.props.location.state.user.data
     return (
       <div>
       <h2>Edit User Details</h2>
       <form onSubmit={this.handleSubmit}>
        <div className='label'>
-        Current Name: {this.state.name}{' '}
+        Current Name: {"name"}{' '}
        <label htmlFor="name"></label>
         <input
           type="text"
@@ -24,7 +25,7 @@ state = {
         />
         </div> 
         <div className='label'>
-        Current Email: {this.state.email}{' '}
+        Current Email: {"email"}{' '}
  <label htmlFor="email"></label>
         <input
           type="text"
@@ -53,9 +54,10 @@ componentDidMount  = async () => {
 
   handleSubmit = async event => {
     event.preventDefault();
+    const {id} = this.props.location.state
     const userObj = this.state;
-    // const amendedUser = await api.patchUser(userObj);
-    console.log(userObj)
+    const amendedUser = await api.patchUser(id, userObj);
+    
    
   };
 }
