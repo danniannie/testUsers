@@ -10,6 +10,7 @@ class AddUser extends Component {
   render() {
     return (
       <div>
+        <h2>Add New User</h2>
       <form onSubmit={this.handleSubmit}>
         <label htmlFor="name">Name: </label>
         <input

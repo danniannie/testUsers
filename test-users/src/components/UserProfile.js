@@ -7,7 +7,8 @@ state = {
   originalName: '',
   originalEmail: '',
   name: "",
-  email: ""
+  email: "",
+  updated: false
   
 }
 
@@ -42,6 +43,7 @@ state = {
         <button className='submitButton' type='submit'>Submit Changes</button>
           </div>
       </form>
+        {this.state.updated === true ? <p>User amended</p> : ""}
       </div>
     );
   }
@@ -68,7 +70,7 @@ componentDidMount  = async () => {
       userObj.email = email
     }
     const amendedUser = await api.patchUser(id, userObj);
-    
+    this.setState({updated: true})
    
   };
 }

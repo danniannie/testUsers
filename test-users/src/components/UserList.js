@@ -10,14 +10,13 @@ class UserList extends Component {
   }
   render() {
     const {users} = this.state
-    console.log(users)
     return (
       <div className='UserList'>
-
+      {this.state.isLoading === true ? <p>Loading...</p>: (<div>
  {users.map((user)=> {
  return <User key={user.id} user={user} refreshUsers={this.refreshUsers}/>
   })} 
-
+        </div>)}
       </div>
     );
   }
