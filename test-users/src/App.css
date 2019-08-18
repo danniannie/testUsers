@@ -30,3 +30,11 @@ form {
   align-items: center;
   border: 1px red solid;
 }
+
+.delete {
+  border: 1px black solid;
+  cursor: pointer;
+  color: black;
+  text-decoration: none;
+  padding: 5px;
+}

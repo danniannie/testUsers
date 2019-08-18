@@ -10,3 +10,8 @@ export const postUser = async (user) => {
   const { data } = await axios.post(`${baseUrl}`, user);
   return data;
 };
+
+export const removeUser = async (userId) => {
+  const { data } = await axios.delete(`${baseUrl}/${userId}`);
+  return data;
+}

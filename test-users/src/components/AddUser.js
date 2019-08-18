@@ -28,7 +28,7 @@ class AddUser extends Component {
         />
         <button type='submit'>Add User</button>
       </form>
-      {Object.keys(this.state.addedUser).length > 1 ? <p>{this.state.addedUser.name} added</p>: ""}
+      {this.state.addedUser.length > 1 ? <p>{this.state.addedUser.name} added</p>: ""}
       </div>
     );
   }

@@ -13,7 +13,7 @@ class UserList extends Component {
     return (
       <div className='UserList'>
 {users.map((user)=> {
- return <User key={user.email} email={user.email} name={user.name}/>
+ return <User key={user.email} email={user.email} name={user.name} refreshUsers={this.refreshUsers}/>
 })}
       </div>
     );
@@ -22,6 +22,11 @@ class UserList extends Component {
     const users = await api.fetchUsers();
     this.setState({ users, isLoading: false });
   }; 
+
+  refreshUsers = async ()=> {
+    const users = await api.fetchUsers();
+    this.setState({ users });
+  };
 }
 
 export default UserList;
