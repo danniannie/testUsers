@@ -1,37 +1,51 @@
 import React, { Component } from 'react';
 import '../App.css';
+import * as api from '../utils/api'
 
 class UserProfile extends Component {
 state = {
-  name: 'Danni',
-  email: 'danniannie@hotmail.com'
+  name: '',
+  email: ''
 }
 
   render() {
     return (
+      <div>
+      <h2>Edit User Details</h2>
       <form onSubmit={this.handleSubmit}>
-        Current Name: Danni
-        <label htmlFor="name">Edit name: </label>
+       <div className='label'>
+        Current Name: {this.state.name}{' '}
+       <label htmlFor="name"></label>
         <input
           type="text"
           id="name"
           onChange={this.handleChange}
           placeholder="Enter updated name"
         />
-        Current Email: Danniannie@hotmail.com
- <label htmlFor="email">Edit Email: </label>
+        </div> 
+        <div className='label'>
+        Current Email: {this.state.email}{' '}
+ <label htmlFor="email"></label>
         <input
           type="text"
           id="email"
           onChange={this.handleChange}
           placeholder="Enter updated email"
         />
-        <button type='submit'>Submit Changes</button>
+        </div>
+        <div className='buttonContainer'>
+        <button className='submitButton' type='submit'>Submit Changes</button>
+          </div>
       </form>
+      </div>
     );
   }
 
-
+componentDidMount  = async () => {
+  const {id} = this.props.location.state
+  const user = await api.fetchUserbyID(id)
+  this.setState({ name: user.data.name, email: user.data.email })
+}
   handleChange = event => {
     const { value, id } = event.target;
     this.setState({ [id]: value });

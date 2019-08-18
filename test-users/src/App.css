@@ -53,9 +53,9 @@ nav {
 
 form {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-evenly;
   border: 1px red solid;
+  flex-wrap: wrap;
 }
 
 .delete {
@@ -64,4 +64,16 @@ form {
   color: black;
   text-decoration: none;
   padding: 5px;
+}
+.label {
+  padding: 5px;
+}
+
+.buttonContainer {
+  display: flex;
+  align-items: center;
+}
+
+.submitButton {
+  width: 100px;
 }

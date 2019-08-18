@@ -15,3 +15,8 @@ export const removeUser = async (userId) => {
   const { data } = await axios.delete(`${baseUrl}/${userId}`);
   return data;
 }
+
+export const fetchUserbyID = async (id) => {
+  const { data } = await axios.get(`${baseUrl}/${id}`);
+  return data;
+};

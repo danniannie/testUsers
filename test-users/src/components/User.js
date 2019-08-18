@@ -9,19 +9,19 @@ class User extends Component {
     deleted: false
   }
   render() {
-    const {email, name} = this.props
+    const {user} = this.props
     return (
       <div className='user'>
-      <p>  Name: {name}</p>
-       <p> Email Address: {email} </p>
-      <Link to={`/${email}`} state={{id: email}}className='delete'>Edit</Link>
+      <p>  Name: {user.data.name}</p>
+       <p> Email Address: {user.data.email} </p>
+      <Link to={`/${user.id}`} state={{id: user.id}}className='delete'>Edit</Link>
         <p><span className='delete'onClick={this.handleClick}>Delete</span></p>
       </div>
     );
   }
   handleClick = async (event) => {
-  const {email} = this.props
-  const deleted = await api.removeUser(email)
+  const {user} = this.props
+  const deleted = await api.removeUser(user.id)
   this.setState({deleted: true})
   this.props.refreshUsers()
 }

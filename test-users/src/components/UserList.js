@@ -10,11 +10,14 @@ class UserList extends Component {
   }
   render() {
     const {users} = this.state
+    console.log(users)
     return (
       <div className='UserList'>
-{users.map((user)=> {
- return <User key={user.email} email={user.email} name={user.name} refreshUsers={this.refreshUsers}/>
-})}
+
+ {users.map((user)=> {
+ return <User key={user.id} user={user} refreshUsers={this.refreshUsers}/>
+  })} 
+
       </div>
     );
   }
