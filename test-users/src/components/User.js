@@ -6,10 +6,11 @@ import React, { Component } from 'react';
 
 class User extends Component {
   render() {
+    const {email, name} = this.props
     return (
       <div className='user'>
-        Name
-        Email Address
+        Name: {name}
+        Email Address: {email}
       <Link to={`/123`}>Edit</Link>
         <button type='submit' onClick={this.handleClick}>Delete</button>
       </div>
