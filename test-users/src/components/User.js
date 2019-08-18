@@ -9,10 +9,10 @@ class User extends Component {
     const {email, name} = this.props
     return (
       <div className='user'>
-        Name: {name}
-        Email Address: {email}
+      <p>  Name: {name}</p>
+       <p> Email Address: {email} </p>
       <Link to={`/123`}>Edit</Link>
-        <button type='submit' onClick={this.handleClick}>Delete</button>
+        <p><span type='submit' onClick={this.handleClick}>Delete</span></p>
       </div>
     );
   }

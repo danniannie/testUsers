@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import '../App.css';
+import * as api from '../utils/api'
 
 class AddUser extends Component {
   state = {
     name: '',
-    email: ''
+    email: '', addedUser: {}
   }
   render() {
     console.log(this.state)
     return (
+      <div>
       <form onSubmit={this.handleSubmit}>
         <label htmlFor="name">Name: </label>
         <input
@@ -26,6 +28,8 @@ class AddUser extends Component {
         />
         <button type='submit'>Add User</button>
       </form>
+      {Object.keys(this.state.addedUser).length > 1 ? <p>{this.state.addedUser.name} added</p>: ""}
+      </div>
     );
   }
   handleChange = event => {
@@ -35,10 +39,11 @@ class AddUser extends Component {
 
   handleSubmit = async event => {
     event.preventDefault();
-    const userObj = this.state;
-    // const addedUser = await api.postUser(userObj);
-    // this.setState({ addedUser});
-    console.log(userObj)
+    const name = this.state.name
+    const email = this.state.email
+    const userObj = {name, email}
+    const addedUser = await api.postUser(userObj);
+    this.setState({addedUser})
   };
 
 }
